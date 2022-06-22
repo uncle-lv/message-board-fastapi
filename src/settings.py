@@ -9,5 +9,5 @@ class OAuth2Settings(BaseSettings):
     
 @lru_cache()
 def get_qq_oauth() -> OAuth2Settings:
-    return OAuth2Settings(app_id='****', app_key='......', redirect_url='http://127.0.0.1:8080')
+    return OAuth2Settings(app_id='1062', app_key='b37cdc0711eb02e95d6b42fa8ac1f342', redirect_url='http://127.0.0.1:8080')
     

@@ -3,6 +3,7 @@ import random
 from typing import List
 from webbrowser import get
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import false
 import urllib3
 from starlette import status
@@ -13,6 +14,19 @@ from sqlalchemy.orm import Session
 import models, schemas, crud
 
 app = FastAPI()
+origins = [
+  "http://kizuna-ai绊爱.cn",
+  "http://localhost:8080"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 http = urllib3.PoolManager()
 colors = ['#EF5564', '#9CF0E3', '#F488A8']
 logger.add("../log/file_{time}.log")
